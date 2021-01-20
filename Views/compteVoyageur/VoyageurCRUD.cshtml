@@ -1,0 +1,55 @@
+﻿@model IEnumerable<navettes.Models.Voyageur>
+
+<br />
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CIN)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EmailUSR)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.mdpUSR)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tel)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.CIN)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.FirstName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.lastName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.EmailUSR)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.mdpUSR)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.tel)
+    </td>
+    <td>
+        @Html.ActionLink("Delete", "Delete", new { id = item.id })
+    </td>
+</tr>
+    }
+
+</table>
