@@ -1,0 +1,57 @@
+﻿@model IEnumerable<navettes.Models.Offre>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NmbAbone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Stiuation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.prix)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Navette.fromCity)
+        </th>
+        <th>
+
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NmbAbone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Stiuation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.prix)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Navette.fromCity)
+            </td>
+            <td>
+                @if (User.Identity.IsAuthenticated && (item.Stiuation) == true)
+                {
+
+                    @Html.ActionLink("S'abonner", "Create", "Abonnements")
+                }
+            </td>
+            @if ((item.Stiuation) == false && User.Identity.IsAuthenticated)
+            {
+                <td>
+                    @Html.ActionLink("Demmander l'offre", "create", "Offres")
+                </td>
+            }
+        </tr>
+    }
+
+</table>
+@if (User.Identity.IsAuthenticated) { 
+    @Html.ActionLink("Demmander une offre", "create", "Demandes")
+}

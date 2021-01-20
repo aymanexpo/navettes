@@ -1,0 +1,69 @@
+﻿
+@model IEnumerable<navettes.Models.Navette>
+
+<br />
+@using (Html.BeginForm("Trajets", "Home", FormMethod.Get))
+{
+
+    @Html.TextBox("searching")
+
+    @Html.TextBox("cherche")
+
+    <input type="submit" value="chercher" />
+
+}
+<br/>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.fromCity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.toCity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.timeGo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.timeWent)
+            </th>
+            
+
+        </tr>
+    </thead>
+    <tbody>
+
+        @if (Model.Count() == 0)
+        {
+            <tr><td colpsan="3" style="color:red">match document</td></tr>
+
+        }
+
+        else
+        {
+
+            foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.fromCity)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.toCity)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.timeGo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.timeWent)
+                    </td>
+                    
+
+                </tr>
+
+            }
+        }
+    </tbody>
+</table>
+

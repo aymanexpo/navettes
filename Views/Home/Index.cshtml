@@ -1,0 +1,27 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+<body background="~/Content/bck.jpg">
+    <div class="carousel-indicators ">
+        <h1>Abonini</h1>
+        <p class="lead">Cherchez vos navettes et voyager en comfort à meilleur prix avec Abonini</p>
+        @if (!User.Identity.IsAuthenticated) {
+    <p><a href="https://localhost:44342/compteVoyageur/signUp" class="btn btn-primary btn-lg">Créer un compte &raquo;</a> <a href="https://localhost:44342/compteVoyageur/Login" class="btn btn-primary btn-lg">Se connecter &raquo;</a> <a href="https://localhost:44342/Stes/Login" class="btn btn-primary btn-lg">S'identifier en tant que societé &raquo;</a></p>
+        }
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+            <h2>Trajets disponible</h2>
+            <p>
+                Découvrir nos trajets
+            </p>
+            <p><a class="btn btn-default" href="https://localhost:44342/Home/Trajets">Savoir plus &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+            <h2>Nos offre d'abonement</h2>
+            <p>Nous vous ofrons les meilleurs propositions d'abonnement</p>
+            <p><a class="btn btn-default" href="https://localhost:44342/Home/Abonnement">Savoir plus &raquo;</a></p>
+        </div>
+    </div>
+</body>
