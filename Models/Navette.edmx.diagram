@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f4a9d3f29a054635bf8caaf271b37007" Name="Diagram1">
+        <EntityTypeShape EntityType="navetteModel.Abonnement" Width="1.5" PointX="3.125" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="navetteModel.Administrateur" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="navetteModel.bus" Width="1.5" PointX="9.125" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="navetteModel.Demande" Width="1.5" PointX="0.75" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="navetteModel.Navette" Width="1.5" PointX="6.25" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="navetteModel.Offre" Width="1.5" PointX="3.125" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="navetteModel.Ste" Width="1.5" PointX="1.5" PointY="18.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="navetteModel.Voyageur" Width="1.5" PointX="0.75" PointY="0.5" IsExpanded="true" />
+        <AssociationConnector Association="navetteModel.FK__Abonnemen__idoff__34C8D9D1" ManuallyRouted="false" />
+        <AssociationConnector Association="navetteModel.FK__Abonnemen__idusr__35BCFE0A" ManuallyRouted="false" />
+        <AssociationConnector Association="navetteModel.FK__bus__idSte__276EDEB3" ManuallyRouted="false" />
+        <AssociationConnector Association="navetteModel.FK__Navette__idbus__2A4B4B5E" ManuallyRouted="false" />
+        <AssociationConnector Association="navetteModel.FK__Demande__idusr__2F10007B" ManuallyRouted="false" />
+        <AssociationConnector Association="navetteModel.FK__Offre__idnvt__31EC6D26" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
