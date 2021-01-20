@@ -1,0 +1,58 @@
+﻿@model navettes.Models.Demande
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Demande</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.fromCity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fromCity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.toCity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.toCity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.timeGo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.timeGo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.timeWent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.timeWent)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Voyageur.CIN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Voyageur.CIN)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

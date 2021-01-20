@@ -1,0 +1,57 @@
+﻿@model IEnumerable<navettes.Models.Demande>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.fromCity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.toCity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.timeGo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.timeWent)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Voyageur.CIN)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.fromCity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.toCity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.timeGo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.timeWent)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Voyageur.CIN)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>
