@@ -1,0 +1,51 @@
+﻿@model IEnumerable<navettes.Models.Abonnement>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.dateDebut)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dateFin)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Offre.id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Voyageur.CIN)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.dateDebut)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dateFin)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Offre.id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Voyageur.CIN)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>
