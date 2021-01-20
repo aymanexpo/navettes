@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="navetteModelStoreContainer" CdmEntityContainer="navetteEntities1">
+    <EntitySetMapping Name="Abonnement">
+      <EntityTypeMapping TypeName="navetteModel.Abonnement">
+        <MappingFragment StoreEntitySet="Abonnement">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="dateDebut" ColumnName="dateDebut" />
+          <ScalarProperty Name="dateFin" ColumnName="dateFin" />
+          <ScalarProperty Name="idoffre" ColumnName="idoffre" />
+          <ScalarProperty Name="idusr" ColumnName="idusr" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Administrateur">
+      <EntityTypeMapping TypeName="navetteModel.Administrateur">
+        <MappingFragment StoreEntitySet="Administrateur">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="admLog" ColumnName="admLog" />
+          <ScalarProperty Name="mdp" ColumnName="mdp" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="bus">
+      <EntityTypeMapping TypeName="navetteModel.bus">
+        <MappingFragment StoreEntitySet="bus">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="VehiculeDescr" ColumnName="VehiculeDescr" />
+          <ScalarProperty Name="NbreSiege" ColumnName="NbreSiege" />
+          <ScalarProperty Name="passwordste" ColumnName="passwordste" />
+          <ScalarProperty Name="idSte" ColumnName="idSte" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Demande">
+      <EntityTypeMapping TypeName="navetteModel.Demande">
+        <MappingFragment StoreEntitySet="Demande">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="fromCity" ColumnName="fromCity" />
+          <ScalarProperty Name="toCity" ColumnName="toCity" />
+          <ScalarProperty Name="timeGo" ColumnName="timeGo" />
+          <ScalarProperty Name="timeWent" ColumnName="timeWent" />
+          <ScalarProperty Name="idusr" ColumnName="idusr" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Navette">
+      <EntityTypeMapping TypeName="navetteModel.Navette">
+        <MappingFragment StoreEntitySet="Navette">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="fromCity" ColumnName="fromCity" />
+          <ScalarProperty Name="toCity" ColumnName="toCity" />
+          <ScalarProperty Name="timeGo" ColumnName="timeGo" />
+          <ScalarProperty Name="timeWent" ColumnName="timeWent" />
+          <ScalarProperty Name="idbus" ColumnName="idbus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Offre">
+      <EntityTypeMapping TypeName="navetteModel.Offre">
+        <MappingFragment StoreEntitySet="Offre">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="NmbAbone" ColumnName="NmbAbone" />
+          <ScalarProperty Name="Stiuation" ColumnName="Stiuation" />
+          <ScalarProperty Name="prix" ColumnName="prix" />
+          <ScalarProperty Name="idnvt" ColumnName="idnvt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ste">
+      <EntityTypeMapping TypeName="navetteModel.Ste">
+        <MappingFragment StoreEntitySet="Ste">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Nomste" ColumnName="Nomste" />
+          <ScalarProperty Name="Emailste" ColumnName="Emailste" />
+          <ScalarProperty Name="mdpSte" ColumnName="mdpSte" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Voyageur">
+      <EntityTypeMapping TypeName="navetteModel.Voyageur">
+        <MappingFragment StoreEntitySet="Voyageur">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="CIN" ColumnName="CIN" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="lastName" ColumnName="lastName" />
+          <ScalarProperty Name="EmailUSR" ColumnName="EmailUSR" />
+          <ScalarProperty Name="mdpUSR" ColumnName="mdpUSR" />
+          <ScalarProperty Name="tel" ColumnName="tel" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

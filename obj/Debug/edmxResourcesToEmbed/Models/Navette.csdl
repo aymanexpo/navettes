@@ -1,0 +1,202 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="navetteModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Abonnement">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="dateDebut" Type="DateTime" Precision="0" />
+    <Property Name="dateFin" Type="DateTime" Precision="0" />
+    <Property Name="idoffre" Type="Int32" />
+    <Property Name="idusr" Type="Int32" />
+    <NavigationProperty Name="Offre" Relationship="Self.FK__Abonnemen__idoff__34C8D9D1" FromRole="Abonnement" ToRole="Offre" />
+    <NavigationProperty Name="Voyageur" Relationship="Self.FK__Abonnemen__idusr__35BCFE0A" FromRole="Abonnement" ToRole="Voyageur" />
+  </EntityType>
+  <EntityType Name="Administrateur">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="admLog" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="mdp" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="bus">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="VehiculeDescr" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="NbreSiege" Type="Int32" />
+    <Property Name="passwordste" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="idSte" Type="Int32" />
+    <NavigationProperty Name="Ste" Relationship="Self.FK__bus__idSte__276EDEB3" FromRole="bus" ToRole="Ste" />
+    <NavigationProperty Name="Navette" Relationship="Self.FK__Navette__idbus__2A4B4B5E" FromRole="bus" ToRole="Navette" />
+  </EntityType>
+  <EntityType Name="Demande">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="fromCity" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="toCity" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="timeGo" Type="Time" Precision="7" />
+    <Property Name="timeWent" Type="Time" Precision="7" />
+    <Property Name="idusr" Type="Int32" />
+    <NavigationProperty Name="Voyageur" Relationship="Self.FK__Demande__idusr__2F10007B" FromRole="Demande" ToRole="Voyageur" />
+  </EntityType>
+  <EntityType Name="Navette">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="fromCity" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="toCity" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="timeGo" Type="Time" Precision="7" />
+    <Property Name="timeWent" Type="Time" Precision="7" />
+    <Property Name="idbus" Type="Int32" />
+    <NavigationProperty Name="bus" Relationship="Self.FK__Navette__idbus__2A4B4B5E" FromRole="Navette" ToRole="bus" />
+    <NavigationProperty Name="Offre" Relationship="Self.FK__Offre__idnvt__31EC6D26" FromRole="Navette" ToRole="Offre" />
+  </EntityType>
+  <EntityType Name="Offre">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NmbAbone" Type="Int32" />
+    <Property Name="Stiuation" Type="Boolean" />
+    <Property Name="prix" Type="Double" />
+    <Property Name="idnvt" Type="Int32" />
+    <NavigationProperty Name="Abonnement" Relationship="Self.FK__Abonnemen__idoff__34C8D9D1" FromRole="Offre" ToRole="Abonnement" />
+    <NavigationProperty Name="Navette" Relationship="Self.FK__Offre__idnvt__31EC6D26" FromRole="Offre" ToRole="Navette" />
+  </EntityType>
+  <EntityType Name="Ste">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nomste" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Emailste" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="mdpSte" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="bus" Relationship="Self.FK__bus__idSte__276EDEB3" FromRole="Ste" ToRole="bus" />
+  </EntityType>
+  <EntityType Name="Voyageur">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CIN" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="FirstName" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="lastName" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="EmailUSR" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="mdpUSR" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="tel" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Abonnement" Relationship="Self.FK__Abonnemen__idusr__35BCFE0A" FromRole="Voyageur" ToRole="Abonnement" />
+    <NavigationProperty Name="Demande" Relationship="Self.FK__Demande__idusr__2F10007B" FromRole="Voyageur" ToRole="Demande" />
+  </EntityType>
+  <Association Name="FK__Abonnemen__idoff__34C8D9D1">
+    <End Role="Offre" Type="Self.Offre" Multiplicity="0..1" />
+    <End Role="Abonnement" Type="Self.Abonnement" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Offre">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Abonnement">
+        <PropertyRef Name="idoffre" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Abonnemen__idusr__35BCFE0A">
+    <End Role="Voyageur" Type="Self.Voyageur" Multiplicity="0..1" />
+    <End Role="Abonnement" Type="Self.Abonnement" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Voyageur">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Abonnement">
+        <PropertyRef Name="idusr" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__bus__idSte__276EDEB3">
+    <End Role="Ste" Type="Self.Ste" Multiplicity="0..1" />
+    <End Role="bus" Type="Self.bus" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ste">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="bus">
+        <PropertyRef Name="idSte" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Navette__idbus__2A4B4B5E">
+    <End Role="bus" Type="Self.bus" Multiplicity="0..1" />
+    <End Role="Navette" Type="Self.Navette" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="bus">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Navette">
+        <PropertyRef Name="idbus" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Demande__idusr__2F10007B">
+    <End Role="Voyageur" Type="Self.Voyageur" Multiplicity="0..1" />
+    <End Role="Demande" Type="Self.Demande" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Voyageur">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Demande">
+        <PropertyRef Name="idusr" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Offre__idnvt__31EC6D26">
+    <End Role="Navette" Type="Self.Navette" Multiplicity="0..1" />
+    <End Role="Offre" Type="Self.Offre" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Navette">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Offre">
+        <PropertyRef Name="idnvt" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="navetteEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Abonnement" EntityType="Self.Abonnement" />
+    <EntitySet Name="Administrateur" EntityType="Self.Administrateur" />
+    <EntitySet Name="bus" EntityType="Self.bus" />
+    <EntitySet Name="Demande" EntityType="Self.Demande" />
+    <EntitySet Name="Navette" EntityType="Self.Navette" />
+    <EntitySet Name="Offre" EntityType="Self.Offre" />
+    <EntitySet Name="Ste" EntityType="Self.Ste" />
+    <EntitySet Name="Voyageur" EntityType="Self.Voyageur" />
+    <AssociationSet Name="FK__Abonnemen__idoff__34C8D9D1" Association="Self.FK__Abonnemen__idoff__34C8D9D1">
+      <End Role="Offre" EntitySet="Offre" />
+      <End Role="Abonnement" EntitySet="Abonnement" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Abonnemen__idusr__35BCFE0A" Association="Self.FK__Abonnemen__idusr__35BCFE0A">
+      <End Role="Voyageur" EntitySet="Voyageur" />
+      <End Role="Abonnement" EntitySet="Abonnement" />
+    </AssociationSet>
+    <AssociationSet Name="FK__bus__idSte__276EDEB3" Association="Self.FK__bus__idSte__276EDEB3">
+      <End Role="Ste" EntitySet="Ste" />
+      <End Role="bus" EntitySet="bus" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Navette__idbus__2A4B4B5E" Association="Self.FK__Navette__idbus__2A4B4B5E">
+      <End Role="bus" EntitySet="bus" />
+      <End Role="Navette" EntitySet="Navette" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Demande__idusr__2F10007B" Association="Self.FK__Demande__idusr__2F10007B">
+      <End Role="Voyageur" EntitySet="Voyageur" />
+      <End Role="Demande" EntitySet="Demande" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Offre__idnvt__31EC6D26" Association="Self.FK__Offre__idnvt__31EC6D26">
+      <End Role="Navette" EntitySet="Navette" />
+      <End Role="Offre" EntitySet="Offre" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
