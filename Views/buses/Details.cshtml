@@ -1,0 +1,50 @@
+﻿@model navettes.Models.bus
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>bus</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.VehiculeDescr)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VehiculeDescr)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NbreSiege)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NbreSiege)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.passwordste)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.passwordste)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ste.Nomste)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ste.Nomste)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
